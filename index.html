@@ -70,10 +70,11 @@
             border-color: orangered;
         }
 
-        button {
+        a.button {
+            display: inline-block;
             background-color: orangered;
             color: white;
-            border: none;
+            text-decoration: none; /* Retirer le soulignement */
             padding: 12px 25px;
             font-size: 1em;
             border-radius: 5px;
@@ -82,10 +83,11 @@
             margin-top: 20px;
         }
 
-        button:hover {
+        a.button:hover {
             background-color: #e64a19;
             transform: scale(1.05);
         }
+
 
         footer {
             margin-top: 30px;
@@ -111,8 +113,7 @@
     <p>Vous êtes-vous senti soutenu dans vos tâches ou difficultés aujourd’hui ?</p>
     <img src="images/3.png" alt="Soutien aux employés">
 
-    <button>Envoyer Feedback</button>
-</div>
+    <a href="dashboard_employé.html" class="button">Envoyer Feedback</a></div>
 
 <footer>
     © 2024 Orange - Tous droits réservés
