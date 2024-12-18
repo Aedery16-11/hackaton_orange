@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #f8f8f8; /* Un gris doux */
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: Helvetica, Arial, sans-serif;
+            color: orangered; /* Couleur Orange */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin: 0 10px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+            color: orangered;
+        }
+
+        /* Main Content */
+        .dashboard-container {
+            width: 90%;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #myPieChart {
+            width: 80% !important;
+            height: 400px !important;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #000;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<div class="navbar">
+    <h1>Dashboard</h1>
+    <div>
+        <a href="#">Accueil</a>
+        <a href="#">Statistiques</a>
+        <a href="#">Paramètres</a>
+    </div>
+</div>
+
+<!-- Main Dashboard Content -->
+<div class="dashboard-container">
+    <h2 style="color: orangered; font-family: Helvetica;">Vos employés sont-ils heureux ?</h2>
+
+    <!-- Pie Chart -->
+    <canvas id="myPieChart"></canvas>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    © 2024 Orange - Tous droits réservés
+</div>
+
+<!-- Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Prepare the data for the pie chart
+    const dataPoints = [
+        { label: "Bonne semaine ?", y: 31.82 },
+        { label: "Environnement agréable ?", y: 22.73 },
+        { label: "Interactions positives ?", y: 18.18 },
+        { label: "Soutien dans leurs tâches", y: 27.27 }
+    ];
+
+    const data = {
+        labels: dataPoints.map(point => point.label),
+        datasets: [{
+            data: dataPoints.map(point => point.y),
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 2
+        }]
+    };
+
+    // Configuration options
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        font: {
+                            size: 14
+                        },
+                        color: '#333'
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Statistiques des réponses',
+                    color: 'orangered',
+                    font: {
+                        size: 18,
+                        family: 'Helvetica'
+                    }
+                }
+            }
+        },
+    };
+
+    // Render the chart
+    const myPieChart = new Chart(
+        document.getElementById('myPieChart'),
+        config
+    );
+</script>
+</body>
+</html>
