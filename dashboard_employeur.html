@@ -55,11 +55,34 @@
             text-align: center;
         }
 
+        h2 {
+            color: orangered;
+            font-family: Helvetica;
+        }
+
+        .summary {
+            text-align: left;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .points-forts, .opportunites {
+            background-color: #f0f0f0;
+            border-left: 5px solid orangered;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
         #myPieChart {
-            width: 80% !important;
-            height: 400px !important;
+            width: 50%; /* Réduit la largeur à 80% de la largeur du conteneur */
+            height: 150px; /* Ajuste la hauteur pour éviter un graphique trop grand */
             margin: 0 auto;
         }
+
+
+
 
         /* Footer */
         .footer {
@@ -69,22 +92,13 @@
             color: #fff;
             font-size: 0.9rem;
         }
+
         iframe {
             width: 100%;
             height: 500px;
             border: none;
             margin-top: 20px;
         }
-
-        h4
-        {
-            color: orangered;
-        }
-        strong
-        {
-            color: orangered;
-        }
-
     </style>
 </head>
 <body>
@@ -92,52 +106,36 @@
 <div class="navbar">
     <h1>Dashboard</h1>
     <div>
-        <a href="#">Accueil</a>
         <a href="#">Statistiques</a>
-        <a href="#">Paramètres</a>
     </div>
 </div>
 
 <!-- Main Dashboard Content -->
 <div class="dashboard-container">
-    <h2 style="color: orangered; font-family: Helvetica;">Vos employés sont-ils heureux ?</h2>
+    <h2>Vos employés sont-ils heureux ?</h2>
 
     <!-- Pie Chart -->
     <canvas id="myPieChart"></canvas>
+
+    <h2>Commentaires de SereniBot</h2>
+    <div class="summary">
+        <p>L'état général de votre entreprise est très positif, avec un score de satisfaction global de <strong>81%</strong>. Voici un aperçu des points forts et des opportunités d'amélioration :</p>
+
+        <div class="points-forts">
+            <h4>Points forts :</h4>
+            <p><strong>Ambiance générale :</strong> 98%<br>
+                <strong>Environnement de travail :</strong> 97%<br>
+                <strong>Interactions positives :</strong> 98%</p>
+        </div>
+
+        <div class="opportunites">
+            <h4>Opportunité d'amélioration :</h4>
+            <p><strong>Soutien dans les tâches :</strong> 34% (ce score indique que certains employés se sentent moins accompagnés dans leurs tâches).</p>
+        </div>
+
+        <p>En résumé, bien que les retours soient très positifs, un effort ciblé sur le soutien pourrait encore améliorer l'équilibre général et renforcer la satisfaction des employés.</p>
+    </div>
 </div>
-
-
-<h2 style="color: orangered; font-family: Helvetica;">Commentaires de SereniBot</h2>
-<p style="text-align: left; font-size: 1.2em; line-height: 1.6; color: #333;">
-    <h4>Aperçu global des retours des employés 🎯</h4>
-    Score de satisfaction général : 81% ✅<br>
-    <h4>Points forts 👏</h4>
-
-    <strong>"Bonne semaine ?" (98%) 🔥</strong><br>
-    → Ambiance générale très positive. Maintenez cette dynamique en valorisant les réussites et en encourageant la communication.<br><br>
-
-<strong>"Environnement agréable ?" (97%) 🏢</strong> <br>
-    → Vos efforts pour un cadre de travail plaisant sont appréciés. Continuez à offrir des espaces adaptés et confortables.<br><br>
-
-<strong>"Interactions positives ?" (98%) 🤝</strong> <br>
-    → Les relations entre employés sont globalement saines. 👉 Envisagez des événements d'équipe pour renforcer encore davantage ces interactions.<br><br>
-
-<strong>Opportunités d'amélioration ⚠️</strong> <br>
-    "Soutien dans leurs tâches" (34%) 📉<br>
-    → Certains employés ressentent un manque d'assistance dans leurs missions. Voici quelques recommandations pour y remédier :<br>
-    🟢 Encourager l'entraide : Formez des binômes ou groupes de travail pour favoriser le soutien mutuel.<br>
-    🗓️ Instaurer des points réguliers : Organisez des réunions hebdomadaires pour partager les défis et demander de l'aide.<br>
-    🎓 Créer un système de mentorat : Assignez des mentors pour accompagner certains employés dans leur parcours.<br>
-    🧑‍💼 Former les managers : Sensibilisez les responsables à l'importance d'identifier et de répondre aux besoins d'aide dans l'équipe.<br><br>
-
-<strong>Tendance globale 📊</strong><br>
-    👍 Les scores positifs sont stables, avec une hausse notable sur la satisfaction liée aux interactions.<br>
-    ⚠️ La catégorie "Soutien dans les tâches" nécessite une attention particulière. Une amélioration ciblée pourrait augmenter la satisfaction globale.<br><br>
-
-<strong>Conclusion ✅</strong> <br>
-    Les employés sont globalement satisfaits, mais une meilleure collaboration et un soutien accru dans les tâches quotidiennes pourraient améliorer l'équilibre global. 🚀<br>
-</p>
-
 
 <iframe
         src="https://www.chatbase.co/chatbot-iframe/_41DlxMIjl2NH4OIe_bGY"
@@ -145,7 +143,6 @@
         style="height: 100%; min-height: 500px"
         frameborder="0"
 ></iframe>
-
 
 <!-- Footer -->
 <div class="footer">
@@ -173,16 +170,12 @@
                 'rgba(54, 162, 235, 0.6)',
                 'rgba(255, 206, 86, 0.6)',
                 'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(255, 159, 64, 0.6)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 2
         }]
@@ -194,7 +187,8 @@
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true, // Assure que le ratio d'aspect est respecté
+            aspectRatio: 1, // Assure un ratio d'aspect égal entre largeur et hauteur
             plugins: {
                 legend: {
                     position: 'top',
@@ -215,7 +209,8 @@
                     }
                 }
             }
-        },
+        }
+
     };
 
     // Render the chart
@@ -223,9 +218,6 @@
         document.getElementById('myPieChart'),
         config
     );
-
-
-
 </script>
 
 <script>
