@@ -90,7 +90,26 @@
             height: auto;
             max-width: 800px; /* Optional: Set a max-width for better control */
             margin: 0 auto;
+            canvas#timelineChart {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+
+            @media screen and (max-width: 768px) {
+                canvas#timelineChart {
+                    height: 300px; /* Ajustement pour les écrans plus petits */
+                }
+            }
+
+            @media screen and (min-width: 769px) {
+                canvas#timelineChart {
+                    height: 500px; /* Taille normale sur PC */
+                }
+            }
         }
+
     </style>
 </head>
 <body>
@@ -118,7 +137,9 @@
 
     <!-- Timeline Chart -->
     <h2 style="font-family: Helvetica">Évolution de vos réponses</h2>
-    <canvas id="timelineChart"></canvas>
+    <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto;">
+        <canvas id="timelineChart"></canvas>
+    </div>
 
     <!-- Résumé Mensuel -->
     <h2 style="font-family: Helvetica; display: inline-block; padding-bottom: 5px; border-bottom: none;">Compte rendu des 4 dernières semaines</h2>
@@ -161,6 +182,7 @@
 </div>
 
 <!-- Chart.js Library -->
+// Chart.js Library
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
@@ -204,8 +226,8 @@
         type: 'line',
         data: data,
         options: {
-            responsive: true,
-            maintainAspectRatio: true,
+            responsive: true, // Enables responsiveness
+            maintainAspectRatio: true, // Keeps the aspect ratio on larger screens
             plugins: {
                 legend: {
                     position: 'top',
@@ -214,8 +236,19 @@
                     display: true,
                     text: 'Évolution hebdomadaire des réponses'
                 }
-            }
-        }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        maxRotation: 0,
+                        minRotation: 0,
+                    },
+                },
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
     };
 
     // Render Chart
@@ -224,6 +257,7 @@
         config
     );
 </script>
+
 
 
 </body>
