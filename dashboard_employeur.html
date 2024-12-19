@@ -78,8 +78,9 @@
         }
 
         #myPieChart {
-            width: 60%;
+            width: 100%;
             height: auto;
+            max-width: 600px; /* Optional: Set a max-width for better control */
             margin: 0 auto;
         }
 
@@ -231,7 +232,6 @@
         options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio: 1,
             plugins: {
                 legend: {
                     position: 'top',
@@ -253,13 +253,13 @@
                 }
             }
         }
-
     };
 
     const myPieChart = new Chart(
         document.getElementById('myPieChart'),
         config
     );
+
 </script>
 </body>
 </html>
