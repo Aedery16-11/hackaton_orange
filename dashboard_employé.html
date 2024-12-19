@@ -86,9 +86,10 @@
         }
 
         #timelineChart {
-            margin: 20px auto;
-            width: 80%;
-            height: 400px;
+            width: 100%;
+            height: auto;
+            max-width: 800px; /* Optional: Set a max-width for better control */
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -204,6 +205,7 @@
         data: data,
         options: {
             responsive: true,
+            maintainAspectRatio: true,
             plugins: {
                 legend: {
                     position: 'top',
@@ -213,7 +215,7 @@
                     text: 'Évolution hebdomadaire des réponses'
                 }
             }
-        },
+        }
     };
 
     // Render Chart
