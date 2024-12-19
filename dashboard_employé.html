@@ -84,6 +84,12 @@
             border: none;
             margin-top: 20px;
         }
+
+        #timelineChart {
+            margin: 20px auto;
+            width: 80%;
+            height: 400px;
+        }
     </style>
 </head>
 <body>
@@ -101,11 +107,15 @@
 <div class="container">
     <h2 style="font-family: Helvetica">Résumé de votre semaine</h2>
     <div class="summary">
-        <p><strong>1. Bonne semaine ?</strong> <span stylebnnn="color: orangered;">3,5/5</span></p>
+        <p><strong>1. Bonne semaine ?</strong> <span style="color: orangered;">3,5/5</span></p>
         <p><strong>2. Environnement agréable ?</strong> <span style="color: orangered;">2,5/5</span></p>
         <p><strong>3. Interactions positives ?</strong> <span style="color: orangered;">2/5</span></p>
         <p><strong>4. Soutien dans mes tâches ?</strong> <span style="color: orangered;">3/5</span></p>
     </div>
+
+    <!-- Timeline Chart -->
+    <h2 style="font-family: Helvetica">Évolution de vos réponses</h2>
+    <canvas id="timelineChart"></canvas>
 
     <!-- Chatbot -->
     <h2 style="font-family: Helvetica">Parlez à votre assistant, SereniBot</h2>
@@ -121,18 +131,68 @@
     © 2024 Orange - Tous droits réservés
 </div>
 
-<!-- Chatbot Script -->
+<!-- Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-    window.embeddedChatbotConfig = {
-        chatbotId: "LEFvfZ0FR0ndjRAocsiO3",
-        domain : "www.chatbase.co"
-    }
-</script>
-<script
-        src="https://www.chatbase.co/embed.min.js"
-        chatbotId="LEFvfZ0FR0ndjRAocsiO3"
-        domain="www.chatbase.co"
-        defer>
+    // Timeline Data
+    const labels = ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Semaine 4'];
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Bonne semaine ?',
+                data: [4, 3.5, 3, 3.5],
+                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                fill: true,
+            },
+            {
+                label: 'Environnement agréable ?',
+                data: [3, 3, 2.5, 2.5],
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                fill: true,
+            },
+            {
+                label: 'Interactions positives ?',
+                data: [2.5, 3, 2, 2],
+                borderColor: 'rgba(255, 206, 86, 1)',
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                fill: true,
+            },
+            {
+                label: 'Soutien dans mes tâches ?',
+                data: [3, 3, 3.5, 3],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: true,
+            }
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Évolution hebdomadaire des réponses'
+                }
+            }
+        },
+    };
+
+    // Render Chart
+    const timelineChart = new Chart(
+        document.getElementById('timelineChart'),
+        config
+    );
 </script>
 
 </body>
