@@ -113,9 +113,35 @@
         <p><strong>4. Soutien dans mes tâches ?</strong> <span style="color: orangered;">3/5</span></p>
     </div>
 
+
     <!-- Timeline Chart -->
     <h2 style="font-family: Helvetica">Évolution de vos réponses</h2>
     <canvas id="timelineChart"></canvas>
+
+    <!-- Résumé Mensuel -->
+    <h2 style="font-family: Helvetica; border-bottom: 3px solid black; display: inline-block; padding-bottom: 5px;">Compte rendu des 4 dernières semaines</h2>
+    <div class="summary" style="background-color: #f8f8f8; padding: 15px; border: 1px solid black; border-radius: 8px; margin-bottom: 20px;">
+        <p><strong style="color: black;">1. Bonne semaine ?</strong></p>
+        <p style="color: orangered; margin-left: 10px;">
+            La satisfaction globale oscille entre 3 et 3,5/5, montrant une constance malgré des variations mineures. Les efforts pour maintenir un bon équilibre de travail sont visibles.
+        </p>
+
+        <p><strong style="color: black;">2. Environnement agréable ?</strong></p>
+        <p style="color: orangered; margin-left: 10px;">
+            Le score est stable à 2,5/5. Quelques améliorations pourraient être apportées pour rendre l'environnement plus agréable, notamment en termes d'espaces de travail et de confort.
+        </p>
+
+        <p><strong style="color: black;">3. Interactions positives ?</strong></p>
+        <p style="color: orangered; margin-left: 10px;">
+            Avec une note moyenne de 2/5, les interactions sociales semblent être un point à renforcer. Une attention particulière pourrait être portée aux dynamiques d'équipe.
+        </p>
+
+        <p><strong style="color: black;">4. Soutien dans mes tâches ?</strong></p>
+        <p style="color: orangered; margin-left: 10px;">
+            La perception du soutien reste entre 3 et 3,5/5, suggérant que le niveau d'accompagnement est bon mais pourrait être optimisé avec un feedback plus régulier.
+        </p>
+    </div>
+
 
     <!-- Chatbot -->
     <h2 style="font-family: Helvetica">Parlez à votre assistant, SereniBot</h2>
@@ -125,6 +151,7 @@
             frameborder="0">
     </iframe>
 </div>
+
 
 <!-- Footer -->
 <div class="footer">
@@ -194,6 +221,7 @@
         config
     );
 </script>
+
 
 </body>
 </html>

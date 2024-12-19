@@ -10,7 +10,7 @@
         body {
             margin: 0;
             font-family: Helvetica, Arial, sans-serif;
-            background-color: #f8f8f8; /* Un gris doux */
+            background-color: #f8f8f8;
             color: #333;
         }
 
@@ -28,8 +28,7 @@
             margin: 0;
             font-size: 1.5rem;
             font-weight: bold;
-            font-family: Helvetica, Arial, sans-serif;
-            color: orangered; /* Couleur Orange */
+            color: orangered;
         }
 
         .navbar a {
@@ -56,15 +55,17 @@
         }
 
         h2 {
-            color: orangered;
-            font-family: Helvetica;
+            color: black;
+            border-bottom: 3px solid orangered;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
         }
 
         .summary {
             text-align: left;
-            font-size: 1.2em;
+            font-size: 1.1em;
             line-height: 1.6;
-            color: #333;
             margin-top: 20px;
         }
 
@@ -75,21 +76,19 @@
             margin: 10px 0;
             border-radius: 5px;
         }
+
         #myPieChart {
-            width: 50%; /* Réduit la largeur à 80% de la largeur du conteneur */
-            height: 150px; /* Ajuste la hauteur pour éviter un graphique trop grand */
+            width: 60%;
+            height: auto;
             margin: 0 auto;
         }
-
-
-
 
         /* Footer */
         .footer {
             text-align: center;
             padding: 10px;
-            background-color: #000;
-            color: #fff;
+            background-color: black;
+            color: white;
             font-size: 0.9rem;
         }
 
@@ -98,6 +97,34 @@
             height: 500px;
             border: none;
             margin-top: 20px;
+        }
+
+        /* Card Styles for Employer Dashboard */
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: orangered;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -137,10 +164,26 @@
     </div>
 </div>
 
+<div class="dashboard-container">
+    <h2>Indicateurs clés</h2>
+    <div class="dashboard-grid">
+        <div class="card">
+            <h3>Satisfaction Générale</h3>
+            <p>Score moyen : <strong>81%</strong></p>
+        </div>
+        <div class="card">
+            <h3>Ambiance Générale</h3>
+            <p>Score : <strong>98%</strong></p>
+        </div>
+        <div class="card">
+            <h3>Soutien dans les Tâches</h3>
+            <p>Score : <strong>34%</strong></p>
+        </div>
+    </div>
+</div>
+
 <iframe
         src="https://www.chatbase.co/chatbot-iframe/_41DlxMIjl2NH4OIe_bGY"
-        width="100%"
-        style="height: 100%; min-height: 500px"
         frameborder="0"
 ></iframe>
 
@@ -181,14 +224,13 @@
         }]
     };
 
-    // Configuration options
     const config = {
         type: 'pie',
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: true, // Assure que le ratio d'aspect est respecté
-            aspectRatio: 1, // Assure un ratio d'aspect égal entre largeur et hauteur
+            maintainAspectRatio: true,
+            aspectRatio: 1,
             plugins: {
                 legend: {
                     position: 'top',
@@ -213,25 +255,10 @@
 
     };
 
-    // Render the chart
     const myPieChart = new Chart(
         document.getElementById('myPieChart'),
         config
     );
 </script>
-
-<script>
-    window.embeddedChatbotConfig = {
-        chatbotId: "_41DlxMIjl2NH4OIe_bGY",
-        domain: "www.chatbase.co"
-    }
-</script>
-<script
-        src="https://www.chatbase.co/embed.min.js"
-        chatbotId="_41DlxMIjl2NH4OIe_bGY"
-        domain="www.chatbase.co"
-        defer>
-</script>
-
 </body>
 </html>
